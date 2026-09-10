@@ -47,8 +47,7 @@ public class SecurityConfig {
                 // hasAuthority도 가능
                 .authorizeHttpRequests(auth -> auth
                         // 사용자 전용 API
-                        .requestMatchers("/api/user/signup", "/api/user/login").permitAll().requestMatchers("/api/user/**").hasAuthority("USER")
-
+                        .requestMatchers("/api/user/signup", "/api/user/login").permitAll().requestMatchers("/api/user/**").hasAnyAuthority("USER","ADMIN")
                         // 관리자 전용 API.
                         .requestMatchers("/api/admin/signup", "/api/admin/login").permitAll().requestMatchers("/api/admin/**").hasAuthority("ADMIN")
 
