@@ -1,8 +1,13 @@
 package com.cookmate.ingredient.domain;
 
 import com.cookmate.global.type.IngredientCategory;
+import com.cookmate.pantry.domain.Pantry;
+import com.cookmate.recipe.domain.RecipeIngredient;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "ingredient")
@@ -27,6 +32,14 @@ public class Ingredient {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private IngredientCategory ingredientCategory;
+
+    @OneToMany(mappedBy = "Pantry")
+    private List<Pantry> pantryId = new ArrayList<Pantry>();
+
+    @OneToMany(mappedBy = "RecipeIngredient")
+    List<RecipeIngredient> recipeIngredients = new ArrayList<RecipeIngredient>();
+
+
 
     // 기본재료 등록
     public static Ingredient create(

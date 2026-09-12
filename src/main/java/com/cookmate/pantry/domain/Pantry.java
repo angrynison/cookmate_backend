@@ -68,6 +68,10 @@ public class Pantry {
     @Column(nullable = false)
     private Unit unit;
 
+    /* Pantry 와 Ingredient 는 1대1 매핑 */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ingredient_id")
+    private Ingredient ingredientId;
 
     /*
     식재료 등록, 만료일자는 따로 policy를 두어서 작성할 예정
