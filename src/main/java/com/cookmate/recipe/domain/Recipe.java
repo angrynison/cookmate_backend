@@ -49,4 +49,40 @@ public class Recipe {
         Level4,
         Level5,
     }
+
+
+    public Recipe create(
+            String title,
+            String content,
+            String source,
+            Integer cost,
+            String cookingTime,
+            Level level
+    ) {
+        return Recipe.builder()
+                .title(title)
+                .content(content)
+                .source(source)
+                .cost(cost)
+                .cookingTime(cookingTime)
+                .level(level)
+                .build();
+    }
+
+    public Recipe update(
+            String title,
+            String content,
+            String source,
+            Integer cost,
+            String cookingTime,
+            Level level
+    ) {
+        if (title != null) this.title = title;
+        if (content != null) this.content = content;
+        if (source != null) this.source = source;
+        if (cost != null) this.cost = cost;
+        if (cookingTime != null) this.cookingTime = cookingTime;
+        if (level != null) this.level = level;
+        return this;
+    }
 }

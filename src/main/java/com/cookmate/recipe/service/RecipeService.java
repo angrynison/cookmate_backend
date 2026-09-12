@@ -1,4 +1,4 @@
 package com.cookmate.recipe.service;
 
-public class RecipeService {
+public interface RecipeService {
 }
