@@ -4,6 +4,10 @@ package com.cookmate.global.type;
 public enum Unit {
     EA,
     ML,
+    L,
+    TSP,
+    TBSP,
+    CUP,
     KG,
-    G,
+    G
 }

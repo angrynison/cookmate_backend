@@ -4,5 +4,7 @@ package com.cookmate.global.type;
 public enum Cuisine {
     한식,
     중식,
-    양식
+    일식,
+    양식,
+    기타
 }
