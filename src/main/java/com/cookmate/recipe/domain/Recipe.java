@@ -1,4 +1,5 @@
 package com.cookmate.recipe.domain;
+import com.cookmate.global.type.Cuisine;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,6 +27,7 @@ public class Recipe {
     String source;
     Integer cost;
     String cookingTime;
+    Cuisine cuisine;
 
     @Enumerated(EnumType.STRING)
     private Level level;
@@ -51,13 +53,14 @@ public class Recipe {
     }
 
 
-    public Recipe create(
+    public static Recipe create(
             String title,
             String content,
             String source,
             Integer cost,
             String cookingTime,
-            Level level
+            Level level,
+            Cuisine cuisine
     ) {
         return Recipe.builder()
                 .title(title)
@@ -66,6 +69,7 @@ public class Recipe {
                 .cost(cost)
                 .cookingTime(cookingTime)
                 .level(level)
+                .cuisine(cuisine)
                 .build();
     }
 
@@ -85,4 +89,5 @@ public class Recipe {
         if (level != null) this.level = level;
         return this;
     }
+
 }

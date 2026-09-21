@@ -2,6 +2,7 @@ package com.cookmate.recipe.domain;
 
 import com.cookmate.ingredient.domain.Ingredient;
 import com.cookmate.global.type.Unit;
+import com.cookmate.recipe.dto.RecipeIngredientResponseDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,4 +34,21 @@ public class RecipeIngredient {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ingredient_id", nullable = false)
     private Ingredient ingredientId;
+
+
+    public static RecipeIngredient create(
+            Recipe recipe,
+            String name,
+            Integer quantity,
+            Unit unit
+    ) {
+        return RecipeIngredient.builder()
+                .recipeId(recipe)
+                .name(name)
+                .quantity(quantity)
+                .unit(unit)
+                .build();
+    }
+
+
 }
