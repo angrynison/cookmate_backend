@@ -1,29 +1,19 @@
 package com.cookmate.recipe.dto;
 
-import com.cookmate.pantry.domain.Pantry;
-import com.cookmate.recipe.domain.Recipe;
+import com.cookmate.global.type.Cuisine;
 import lombok.Builder;
+
+import java.util.List;
+import java.util.Optional;
 
 public class RecipeRequestDto {
 
     @Builder
-    public record RecipeCreateToAiDto(
-            Long user_id,
-            Pantry
-
-
+    public record RecipeSchema(
+            Long memberId,
+            List<String> pantries,
+            Optional<List<Cuisine>> cuisines
     ) {
-    }
-
-    @Builder
-    public record RecipeUpdateDto(
-            String title,
-            String content,
-            String source,
-            Integer cost,
-            String cookingTime,
-            Recipe.Level level
-    ){
     }
 
 
