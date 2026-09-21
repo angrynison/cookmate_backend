@@ -1,8 +1,10 @@
 package com.cookmate.recipe.service;
 
-import com.cookmate.recipe.domain.Recipe;
+import com.cookmate.recipe.dto.RecipeRequestDto;
+import com.cookmate.recipe.dto.RecipeResponseDto;
 
 public interface RecipeService {
 
-    public Recipe createRecipe()
+    public Long createRecipe(RecipeResponseDto.RecipeCreatedFromAiDto recipeCreateFromAiDto);
+    public void requestRecipeToAi(Long memberId, RecipeRequestDto.RecipeSchema requestDto);
 }
