@@ -5,6 +5,7 @@ import com.cookmate.recipe.dto.RecipeResponseDto;
 
 public interface RecipeService {
 
-    public Long createRecipe(RecipeResponseDto.RecipeCreatedFromAiDto recipeCreateFromAiDto);
-    public void requestRecipeToAi(Long memberId, RecipeRequestDto.RecipeSchema requestDto);
+    public Long registerRecipe(Long memberId, String guestId, RecipeResponseDto.RecipeResponseSchema recipeCreateFromAiDto);
+    public void requestRecipeToAi(Long memberId, RecipeRequestDto.RecipeRequestSchema requestDto);
+    public Long updateRecipe(Long memberId, Long recipeId, RecipeRequestDto.UpdateRequest updateRequest);
 }
