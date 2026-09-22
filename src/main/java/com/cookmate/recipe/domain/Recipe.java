@@ -1,5 +1,7 @@
 package com.cookmate.recipe.domain;
 import com.cookmate.global.type.Cuisine;
+import com.cookmate.member.domain.Member;
+import com.cookmate.recipe.dto.RecipeIngredientResponseDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -43,6 +45,14 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecipeIngredient> recipeIngredients = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
+
+    @Column(name = "guest_id", length = 100)
+    private String guestId;
+
+
     public enum Level {
         Level0,
         Level1,
@@ -52,8 +62,12 @@ public class Recipe {
         Level5,
     }
 
-
+    /*
+    메소드
+     */
     public static Recipe create(
+            Member member,
+            String guestId,
             String title,
             String content,
             String source,
@@ -63,6 +77,8 @@ public class Recipe {
             Cuisine cuisine
     ) {
         return Recipe.builder()
+                .member(member)
+                .guestId(guestId)
                 .title(title)
                 .content(content)
                 .source(source)
@@ -79,7 +95,8 @@ public class Recipe {
             String source,
             Integer cost,
             String cookingTime,
-            Level level
+            Level level,
+            Cuisine cuisine
     ) {
         if (title != null) this.title = title;
         if (content != null) this.content = content;
@@ -87,6 +104,7 @@ public class Recipe {
         if (cost != null) this.cost = cost;
         if (cookingTime != null) this.cookingTime = cookingTime;
         if (level != null) this.level = level;
+        if (cuisine != null) this.cuisine = cuisine;
         return this;
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 public class RecipeResponseDto {
 
     @Builder
-    public record RecipeCreatedFromAiDto(
+    public record RecipeResponseSchema(
             String title,
             String content,
             String source,
