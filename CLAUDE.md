@@ -13,6 +13,14 @@
 - 이 파일에 학습 규칙을 다시 쓰지 않는다. (두 곳에 쓰면 한쪽만 고쳐져서 충돌한다)
 - 저장소 규칙(`project.md`)과 현업 관행이 다르면 차이를 설명하되 **저장소 규칙을 따르게** 한다.
 
+## 1-1. 학습 루프 (cowork 연결)
+
+- 이 저장소에서 일할 때도 학습 루프를 돌린다. 기억·스킬·일지는 **cowork 폴더**에 읽고 쓰고, 이 저장소에는 만들지 않는다.
+- 절차 원본: `C:\Users\kalin\cowork\LOOP.md` (Cowork 셸에서는 `$HOME/mnt/cowork/LOOP.md`)
+- Claude Code 는 아래 줄로 불러온다. 처음 한 번 "외부 import 승인" 창이 뜨면 허용한다.
+
+@~/cowork/LOOP.md
+
 ## 2. 이 저장소에서 지도할 때 기준
 
 - 새 클래스 위치: `project.md` 2.2 도메인 표준 구조 (`Controller → Service → ServiceImpl → Repository → Entity`)
