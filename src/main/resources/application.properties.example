@@ -1,0 +1,17 @@
+spring.application.name=cookmate
+
+# MySQL
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/cookmate?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+spring.datasource.username= <DB 사용자>
+spring.datasource.password= <DB 비밀번호>
+
+# JPA-ddl
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.format_sql=true
+
+# JWT KEY
+jwt.key = <base64 32바이트 이상 키>
+jwt.expiration = 3600000
+jwt.adminToken = <관리자 가입 토큰>
